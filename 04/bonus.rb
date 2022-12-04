@@ -7,10 +7,6 @@ ranges = ARGF.each_line
     [Range.new(a_start, a_end), Range.new(b_start, b_end)]
   }
 
-proper = ranges.select do |a, b|
-  (b.first >= a.first && b.last <= a.last) || (a.first >= b.first && a.last <= b.last)
-end
-
 disjoint = ranges.select do |a, b|
   b.last < a.first || b.first > a.last
 end
