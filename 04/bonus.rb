@@ -11,4 +11,8 @@ proper = ranges.select do |a, b|
   (b.first >= a.first && b.last <= a.last) || (a.first >= b.first && a.last <= b.last)
 end
 
-p proper.length
+disjoint = ranges.select do |a, b|
+  b.last < a.first || b.first > a.last
+end
+
+p ranges.length - disjoint.length
