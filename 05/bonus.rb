@@ -20,9 +20,5 @@ ARGF.each_line do |line|
   end
 end
 
-top_crates = []
-(0..stacks.keys.length-1).each do |i|
-  top_crates.push stacks[i].last
-end
-
-p top_crates.join('')
+top_crates = (0..stacks.keys.length-1).map { |i| stacks[i].last }.join('')
+p top_crates
