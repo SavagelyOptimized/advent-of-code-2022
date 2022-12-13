@@ -12,16 +12,12 @@ ARGF.each_line.map { |line| line.chomp.split }
         interesting_total += total * cycle
       end
     elsif command == "addx"
-      cycle += 1
+      (1..2).each do
+        cycle += 1
 
-      if interesting_cycles.include? cycle
-        interesting_total += total * cycle
-      end
-
-      cycle += 1
-
-      if interesting_cycles.include? cycle
-        interesting_total += total * cycle
+        if interesting_cycles.include? cycle
+          interesting_total += total * cycle
+        end
       end
 
       total += value.to_i
